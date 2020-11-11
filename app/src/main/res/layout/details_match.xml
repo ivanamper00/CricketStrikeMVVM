@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="5dp"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="10dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linear_match_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/match_details_game_series"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:fontFamily="@font/aliance_regular"
+            android:textStyle="bold"
+            android:background="@color/colorBlack"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/match_details_game_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/aliance_regular"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/match_details_game_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:textStyle="italic" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:weightSum="1"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:layout_weight=".4"
+                android:orientation="vertical">
+                <!--            android:background="@drawable/games_teams_background_top"-->
+                <ImageView
+                    android:id="@+id/match_details_home_logo"
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/match_details_home_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/colorBlack"
+                        android:paddingLeft="10dp"
+                        android:fontFamily="@font/aliance_regular"
+                        android:layout_margin="5dp"
+                        android:text=""/>
+                    <TextView
+                        android:id="@+id/match_details_home_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:paddingLeft="10dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:text=""/>
+                    <TextView
+                        android:id="@+id/match_details_home_overs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/aliance_regular"
+                        android:textColor="@color/colorBlack"
+                        android:layout_margin="5dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/vs"
+                android:gravity="center"
+                app:tint="@color/colorBlack"
+                android:layout_weight=".2"
+                android:textColor="@color/colorBlack"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:layout_weight=".4"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+                <!--            android:background="@drawable/games_teams_background_bottom"-->
+                <ImageView
+                    android:id="@+id/match_details_away_logo"
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/match_details_away_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="@font/aliance_regular"
+                        android:textColor="@color/colorBlack"
+                        android:gravity="center"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/match_details_away_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/colorBlack"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/match_details_away_overs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/aliance_regular"
+                        android:layout_margin="5dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/home_team_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+
+                android:orientation="horizontal"
+                android:paddingHorizontal="40dp">
+                <!--            android:background="@drawable/games_teams_background_top"-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/match_details_batting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/aliance_regular"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/match_details_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginVertical="10dp"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/aliance_regular"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/match_details_close"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/close"/>
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

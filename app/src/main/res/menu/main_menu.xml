@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+<!--    <item-->
+<!--        android:id="@+id/upcoming"-->
+<!--        android:title="Upcoming"/>-->
+    <item
+        android:id="@+id/matches"
+        android:icon="@drawable/vs"
+        android:title="Matches"/>
+    <item
+        android:id="@+id/teams"
+        android:icon="@drawable/ic_teams"
+        android:title="Teams"/>
+    <item
+        android:id="@+id/series"
+        android:icon="@drawable/series_icon"
+        android:title="Leagues"/>
+</menu>

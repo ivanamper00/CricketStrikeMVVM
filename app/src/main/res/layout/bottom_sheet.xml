@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/design_bottom_sheet"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:behavior_hideable="false"
+    android:layout_marginBottom="70dp"
+    app:behavior_peekHeight="25dp"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    >
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="@drawable/nav_bottom_background"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@drawable/item_selected_color_toggle"
+        app:itemTextColor="@drawable/item_selected_color_toggle"
+        app:labelVisibilityMode="labeled"
+        android:layout_marginTop="25dp"
+        app:menu="@menu/main_menu" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/slider"
+        android:layout_marginHorizontal="5dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:cardCornerRadius="30dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/arrow_down"
+            app:tint="@color/colorBlack"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_up"
+            android:scaleType="fitXY"/>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

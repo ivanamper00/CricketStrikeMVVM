@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="5dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/series_badge"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:layout_margin="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/series_name"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:fontFamily="@font/aliance_regular"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/series_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/series_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/series_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
