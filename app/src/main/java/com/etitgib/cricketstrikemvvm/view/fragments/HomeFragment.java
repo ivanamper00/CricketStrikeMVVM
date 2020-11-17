@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +35,8 @@ import com.etitgib.cricketstrikemvvm.viewmodels.TeamDetailsViewModel;
 import com.etitgib.cricketstrikemvvm.viewmodels.TeamsViewModel;
 import com.etitgib.cricketstrikemvvm.viewmodels.UpcomingViewModel;
 import com.github.islamkhsh.CardSliderViewPager;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -105,6 +109,9 @@ public class HomeFragment extends Fragment {
     ImageView seriesBadge;
     CardView cardView;
     CardView noUpcoming;
+    ProgressBar progressBar;
+    Sprite doubleBounce = new DoubleBounce();
+    RelativeLayout relativeLoading;
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -127,6 +134,9 @@ public class HomeFragment extends Fragment {
         teamsViewModel = ViewModelProviders.of(this).get(TeamsViewModel.class);
         upcomingViewModel = ViewModelProviders.of(this).get(UpcomingViewModel.class);
         teamDetailsViewModel = ViewModelProviders.of(this).get(TeamDetailsViewModel.class);
+        relativeLoading = view.findViewById(R.id.relative_loading);
+        progressBar = (ProgressBar)view.findViewById(R.id.spin_kit);
+        progressBar.setIndeterminateDrawable(doubleBounce);
 
         upcomingViewModel.init(getContext());
         teamsViewModel.init(getContext());
@@ -150,12 +160,12 @@ public class HomeFragment extends Fragment {
             teamsList.addAll(result);
             Presets.teamCount = teamsList.size();
             Random rand = new Random();
-            int number = rand.nextInt(teamsList.size()-1);
+            int number = rand.nextInt(teamsList.size());
             Presets.teamId = Integer.toString(teamsList.get(number).getId());
             teamPlayer.setText("Featured Team" + " (" + teamsList.get(number).getName() + ")");
             teamDetailsViewModel.init(getContext());
             adapter.notifyDataSetChanged();
-
+            relativeLoading.setVisibility(View.GONE);
             teamDetailsViewModel.getTeamPlayers().observe(this, players ->{
                 teamPlayers.addAll(players);
                 if(teamPlayers.size() == 0){
@@ -163,7 +173,6 @@ public class HomeFragment extends Fragment {
                     cardSliderViewPager.setVisibility(View.GONE);
                 }
                 playersAdapter.notifyDataSetChanged();
-
             });
         });
         teamsViewModel.getStandings().observe(this, result -> {
@@ -197,6 +206,5 @@ public class HomeFragment extends Fragment {
 
         playersAdapter = new TeamPlayersAdapter(getContext(), teamPlayers);
         cardSliderViewPager.setAdapter(playersAdapter);
-
     }
 }

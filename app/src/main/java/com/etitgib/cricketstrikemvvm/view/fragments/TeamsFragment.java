@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.etitgib.cricketstrikemvvm.R;
@@ -17,6 +18,8 @@ import com.etitgib.cricketstrikemvvm.adapters.TeamsAdapter;
 import com.etitgib.cricketstrikemvvm.models.standings.TeamStandingModel;
 import com.etitgib.cricketstrikemvvm.models.teams.TeamsListModel;
 import com.etitgib.cricketstrikemvvm.viewmodels.TeamsViewModel;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,14 +77,19 @@ public class TeamsFragment extends Fragment {
     private List<TeamsListModel> teamsList = new ArrayList<>();
     private List<TeamStandingModel> teamStandings = new ArrayList<>();
     private TeamsAdapter adapter;
+    ProgressBar progressBar;
+    RelativeLayout relativeLoading;
+    Sprite doubleBounce = new DoubleBounce();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_teams, container, false);
-
+        relativeLoading = view.findViewById(R.id.relative_loading);
+        progressBar = (ProgressBar)view.findViewById(R.id.spin_kit);
+        progressBar.setIndeterminateDrawable(doubleBounce);
         recyclerView = view.findViewById(R.id.teams_recycler);
-        relativeLayout = view.findViewById(R.id.relative_loading);
+//        relativeLayout = view.findViewById(R.id.relative_loading);
 
         teamsViewModel = ViewModelProviders.of(this).get(TeamsViewModel.class);
         teamsViewModel.init(getContext());
@@ -91,7 +99,7 @@ public class TeamsFragment extends Fragment {
             teamsList.addAll(result);
             adapter.notifyDataSetChanged();
             if(adapter != null){
-//                relativeLayout.setVisibility(View.GONE);
+                relativeLoading.setVisibility(View.GONE);
             }
         });
         teamsViewModel.getStandings().observe(this, result -> {

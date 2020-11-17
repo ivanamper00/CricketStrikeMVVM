@@ -137,4 +137,5 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <include layout="@layout/import_loading"/>
 </FrameLayout>

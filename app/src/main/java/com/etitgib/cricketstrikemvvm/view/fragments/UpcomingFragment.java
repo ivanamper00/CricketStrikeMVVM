@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.etitgib.cricketstrikemvvm.R;
@@ -17,6 +18,8 @@ import com.etitgib.cricketstrikemvvm.adapters.SeriesGamesAdapter;
 import com.etitgib.cricketstrikemvvm.models.games.MatchListModel;
 import com.etitgib.cricketstrikemvvm.repositories.Presets;
 import com.etitgib.cricketstrikemvvm.viewmodels.UpcomingViewModel;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +75,9 @@ public class UpcomingFragment extends Fragment {
     private RelativeLayout relativeLayout;
     private SeriesGamesAdapter adapter;
     List<MatchListModel> seriesUpcomingMatchList = new ArrayList<>();
+    ProgressBar progressBar;
+    RelativeLayout relativeLoading;
+    Sprite doubleBounce = new DoubleBounce();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,7 +86,9 @@ public class UpcomingFragment extends Fragment {
         upcomingViewModel = ViewModelProviders.of(this).get(UpcomingViewModel.class);
 
         recyclerView = view.findViewById(R.id.upcoming_recycler);
-        relativeLayout = view.findViewById(R.id.relative_loading);
+        relativeLoading = view.findViewById(R.id.relative_loading);
+        progressBar = (ProgressBar)view.findViewById(R.id.spin_kit);
+        progressBar.setIndeterminateDrawable(doubleBounce);
 //        relativeLayout.setVisibility(View.VISIBLE);
         upcomingViewModel.init(getContext());
 
@@ -88,7 +96,7 @@ public class UpcomingFragment extends Fragment {
             seriesUpcomingMatchList.addAll(result);
             adapter.notifyDataSetChanged();
             if(adapter != null){
-//                relativeLayout.setVisibility(View.GONE);
+                relativeLoading.setVisibility(View.GONE);
             }
         });
 

@@ -50,8 +50,6 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
             super(itemView);
             teamName = itemView.findViewById(R.id.teams_name);
             teamLogo = itemView.findViewById(R.id.teams_logo);
-
-
         }
     }
 
@@ -106,17 +104,21 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.TeamsViewHol
     }
 
     TeamPlayersAdapter playersAdapter;
+    @SuppressLint("SetTextI18n")
     public void dialogPlayer(TeamsListModel team){
         Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.details_teams);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
 
+        ImageView close = dialog.findViewById(R.id.close);
         TextView teamName = dialog.findViewById(R.id.team_details_team_name);
         ImageView teamLogo = dialog.findViewById(R.id.team_details_team_logo);
 
-        teamName.setText(team.getName());
-        Picasso.get().load(team.getLogoUrl() + "(Players)").into(teamLogo);
+        close.setOnClickListener(v -> dialog.dismiss());
+
+        teamName.setText(team.getName() + "\n(Players)");
+        Picasso.get().load(team.getLogoUrl()).into(teamLogo);
 
         TeamDetailsViewModel teamDetailsViewModel;
         List<PlayerDetailsModel> teamPlayers = new ArrayList<>();

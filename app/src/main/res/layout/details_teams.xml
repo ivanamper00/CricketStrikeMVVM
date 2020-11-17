@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:cardCornerRadius="10dp"
     app:cardBackgroundColor="@color/colorBlack"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -37,6 +38,7 @@
         <com.github.islamkhsh.CardSliderViewPager
             android:id="@+id/team_player_card_slider"
             android:layout_width="380dp"
+            android:layout_marginBottom="20dp"
             android:layout_height="300dp"
             android:layout_weight=".7"
             app:cardSlider_otherPagesWidth="15dp"
@@ -47,4 +49,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/close"
+            android:id="@+id/close"/>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
